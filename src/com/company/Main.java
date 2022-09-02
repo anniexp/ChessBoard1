@@ -14,7 +14,21 @@ public class Main {
             }
 
             for (int i = 0, j = 0; i < height && j <= width; ) {
-                System.out.print("* ");
+                String s1 = "*";
+                String s2 = " ";
+
+                if (i % 2 != 0) {
+                    String temp = s1;
+                    s1 = s2;
+                    s2 = temp;
+                }
+
+                if (j % 2 == 0) {
+                    System.out.print(s1);
+                } else {
+                    System.out.print(s2);
+                }
+
                 j++;
                 if (j == width) {
                     System.out.println();
@@ -38,7 +52,6 @@ public class Main {
         try {
             int rows = Integer.parseInt(inputRows);
             int columns = Integer.parseInt(inputColumns);
-
             drawChessBoard(rows, columns);
         } catch (Exception e) {
             System.out.println("Please type in numbers!");
@@ -49,7 +62,6 @@ public class Main {
     public static void main(String[] args) {
         drawChessBoard(5, 5);
         drawChessBoard(-1, 0);
-
         inputValues();
     }
 }
